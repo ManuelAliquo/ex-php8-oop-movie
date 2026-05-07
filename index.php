@@ -1,3 +1,21 @@
+<?php
+
+class Genre
+{
+    public $name;
+    public $movieCount;
+};
+
+class Movie
+{
+    public $title;
+    public $year;
+    public $director;
+    public $genre;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +26,6 @@
 </head>
 
 <body>
-    <h1>Movies</h1>
 </body>
 
 </html>
