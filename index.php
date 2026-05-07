@@ -26,13 +26,15 @@ class Movie
         $this->director = $_director;
         $this->genre = $_genre;
     }
+
+    public function getDetails()
+    {
+        return "Title: {$this->title} - Year: {$this->year} - Director: {$this->director} - Genre: {$this->genre->name}";
+    }
 }
 
 $theLordOfTheRings = new Movie("The Lord of the Rings", 2001, "Peter Jackson", new Genre("Fantasy", 124));
 $projectHailMary = new Movie("Project Hail Mary", 2026, "Phil Lord and Chris Miller", new Genre("Sci-Fi", 163));
-
-var_dump($theLordOfTheRings);
-var_dump($projectHailMary);
 
 ?>
 
@@ -42,10 +44,19 @@ var_dump($projectHailMary);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movies</title>
 </head>
 
 <body>
+    <h1>Movies</h1>
+
+    <div>
+        <?php
+        echo $theLordOfTheRings->getDetails();
+        echo "<br>";
+        echo $projectHailMary->getDetails();
+        ?>
+    </div>
 </body>
 
 </html>
