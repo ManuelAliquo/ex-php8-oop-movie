@@ -17,24 +17,32 @@ class Movie
     public $title;
     public $year;
     public $director;
-    public $genre;
+    public $genres;
 
-    function __construct($_title, $_year, $_director, Genre $_genre)
+    function __construct($_title, $_year, $_director, $_genres)
     {
         $this->title = $_title;
         $this->year = $_year;
         $this->director = $_director;
-        $this->genre = $_genre;
+        $this->genres = $_genres;
     }
 
     public function getDetails()
     {
-        return "Title: {$this->title} - Year: {$this->year} - Director: {$this->director} - Genre: {$this->genre->name}";
+        $namesList = [];
+
+        foreach ($this->genres as $genre) {
+            $namesList[] = $genre->name;
+        }
+
+        $genres = implode(", ", $namesList);
+
+        return "Title: {$this->title} | {$this->year} | Director: {$this->director} | Genres: {$genres}";
     }
 }
 
-$theLordOfTheRings = new Movie("The Lord of the Rings", 2001, "Peter Jackson", new Genre("Fantasy", 124));
-$projectHailMary = new Movie("Project Hail Mary", 2026, "Phil Lord and Chris Miller", new Genre("Sci-Fi", 163));
+$theLordOfTheRings = new Movie("The Lord of the Rings", 2001, "Peter Jackson", [new Genre("Fantasy", 124), new Genre("Adventure", 200)]);
+$projectHailMary = new Movie("Project Hail Mary", 2026, "Phil Lord and Chris Miller", [new Genre("Sci-Fi", 163), new Genre("Adventure", 200)]);
 
 ?>
 
