@@ -10,6 +10,6 @@ trait Rating
 
     public function getScore()
     {
-        return "Rating: {$this->vote}/5";
+        return "Rating: {$this->vote}/5⭐";
     }
 }

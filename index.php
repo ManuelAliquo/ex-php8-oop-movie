@@ -12,14 +12,14 @@
     <title>Movies</title>
 </head>
 
-<body>
+<body class="bg-dark">
     <div class="container mt-5">
-        <h1 class="text-center mb-4">Movies</h1>
-        <div class="row g-4 gap-4">
+        <h1 class="text-center mb-4 text-white fw-bold">Movies</h1>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
             <?php foreach ($movies as $movie) { ?>
-                <div class="col border rounded-4">
-                    <ul>
-                        <li><?php echo $movie->title ?></li>
+                <div class="col">
+                    <ul class="h-100 list-unstyled border rounded-4 bg-light p-4">
+                        <li class="fw-bold fs-5"><?php echo $movie->title ?></li>
                         <li>Year: <?php echo $movie->year ?></li>
                         <li>Director: <?php echo $movie->director ?></li>
                         <li><?php echo $movie->getGenres() ?></li>
